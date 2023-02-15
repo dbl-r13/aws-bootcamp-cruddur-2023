@@ -4,5 +4,5 @@ Going through this weeks homework was definintely fun and challenging. I was abl
 
 Being able to work through some issues and fight through mistakes has made this learning experience so far really enjoyable. I am really enjoy working in the AWS Console to creat new things and brush up on my skills. Below are my Crudder Conceptual and Architectual diagrams. 
 
-![Crudder Conceptual Diagram](../Crudder\ Conceptual\ Diagram.jpeg)
-![Crudder Logical Diagram](../Crudder\ Logicalal\ Diagram.jpeg)
+![Crudder Conceptual Diagram](https://github.com/dbl-r13/aws-bootcamp-cruddur-2023/blob/main/Crudder%20Conceptual%20Diagram.jpeg)
+![Crudder Logical Diagram](https://github.com/dbl-r13/aws-bootcamp-cruddur-2023/blob/main/Crudder%20Logical%20Diagram.jpeg)

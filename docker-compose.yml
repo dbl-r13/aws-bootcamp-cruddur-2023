@@ -10,7 +10,7 @@ services:
     volumes:
       - ./backend-flask:/backend-flask
   frontend-react-js:
-    image: dblr13/cruddur-frontend:1.0
+    image: dblr13/cruddur-frontend:1.01
     environment:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
     ports:

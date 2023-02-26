@@ -9,7 +9,8 @@ COPY . .
 
 ENV FLASK_ENV=development \
     FRONTEND_URL='*' \
-    BACKEND_URL='*'
+    BACKEND_URL='*' \
+    HONEYCOMB_SERVICE_NAME='backend-flask' 
 
 EXPOSE ${PORT}
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]

@@ -7,7 +7,12 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-ENV FLASK_ENV=development
+ENV FLASK_ENV=development \
+    FRONTEND_URL='*' \
+    BACKEND_URL='*' \
+    OTEL_EXPORTER_OTLP_ENDPOINT='https://api.honeycomb.io' \
+    OTEL_EXPORTER_OTLP_HEADERS='x-honeycomb-team=${HONEYCOMB_API_KEY}' \
+    OTEL_SERVICE_NAME='backend-flask'
 
 EXPOSE ${PORT}
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
 class NotificationsActivities:
-  def run():
+  def run(logger):
+    logger.info('Hello Cloudwatch! from  /api/activities/notifications')
     now = datetime.now(timezone.utc).astimezone()
     results = [{
       'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',

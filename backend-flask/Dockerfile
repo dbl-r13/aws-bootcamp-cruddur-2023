@@ -12,7 +12,10 @@ ENV FLASK_ENV=development \
     BACKEND_URL='*' \
     OTEL_EXPORTER_OTLP_ENDPOINT='https://api.honeycomb.io' \
     OTEL_EXPORTER_OTLP_HEADERS='x-honeycomb-team=${HONEYCOMB_API_KEY}' \
-    OTEL_SERVICE_NAME='backend-flask'
+    OTEL_SERVICE_NAME='backend-flask'\
+    AWS_DEFAULT_REGION='${AWS_DEFAULT_REGION}' \
+    AWS_ACCESS_KEY_ID='${AWS_ACCESS_KEY_ID}' \
+    AWS_SECRET_ACCESS_KEY='${AWS_SECRET_ACCESS_KEY}'
 
 EXPOSE ${PORT}
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]

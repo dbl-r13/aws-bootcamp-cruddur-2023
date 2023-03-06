@@ -1,1 +1,5 @@
 # Week 2 — Distributed Tracing
+
+In week 2 I was able to add some instrumentation to the app via Honeycomb.io, AWS X-ray, and Rollbar. I struggled very much with the Honeycomb.io integration because of a change to the base image that I was using from Week 1. Once I was able to figure that out and change that back things went very smooth. I then was able to get all things working properly for AWS X-Ray and Rollbar. 
+
+I am continually learning best practices on reading errors, and looking for the data even though the app seems like it might be working/not throwing any errors. It has been soemthing that I have been enjoying quite a bit and have been working to keep moving forward. I was able to add some custom Honeycomb.io spans in the code. I will be working towards adding some more custom things in for this repo. 

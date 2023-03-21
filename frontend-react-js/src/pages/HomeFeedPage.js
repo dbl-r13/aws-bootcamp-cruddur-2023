@@ -1,12 +1,13 @@
 import './HomeFeedPage.css';
 import React from "react";
 
+import { Auth } from 'aws-amplify';
+
 import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 import ReplyForm from '../components/ReplyForm';
-import { Auth } from 'aws-amplify';
 
 // [TODO] Authenication
 import Cookies from 'js-cookie'
@@ -23,6 +24,9 @@ export default function HomeFeedPage() {
     try {
       const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
       const res = await fetch(backend_url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`
+        },
         method: "GET"
       });
       let resJson = await res.json();
@@ -36,7 +40,6 @@ export default function HomeFeedPage() {
     }
   };
 
-  // check if we are authenicated
   const checkAuth = async () => {
     Auth.currentAuthenticatedUser({
       // Optional, By default is false. 
@@ -56,18 +59,6 @@ export default function HomeFeedPage() {
     .catch((err) => console.log(err));
   };
   
-  // If working, remove this commented out code.
-  // const checkAuth = async () => {
-  //   console.log('checkAuth')
-  //   // [TODO] Authenication
-  //   if (Cookies.get('user.logged_in')) {
-  //     setUser({
-  //       display_name: Cookies.get('user.name'),
-  //       handle: Cookies.get('user.username')
-  //     })
-  //   }
-  // };
-
   React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;

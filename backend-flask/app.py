@@ -54,7 +54,7 @@ app = Flask(__name__)
 
 cognito_jwt_token = CognitoJwtToken(
   user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID") , 
-  user_pool_client_id=os.getenv("REACT_APP_CLIENT_ID"), 
+  user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"), 
   region=os.getenv("AWS_DEFAULT_REGION")
   )
 
@@ -158,16 +158,14 @@ def data_home():
   try:
     claims = cognito_jwt_token.verify(access_token)
     #Authenticated
-    app.logger.debug('claims')
-    app.logger.debug(claims)
+    app.logger.debug('Authenticated')
+    app.logger.debug(claims['username']==None)
+    data = HomeActivities.run(cognito_user_id=claims['username'])
   except TokenVerifyError as e:
     #Unauthenticated
-    app.logger.debug('unauthenticated')
-
-
-  
-
-  data = HomeActivities.run(logger=LOGGER)
+    app.logger.debug('Unauthenticated')
+    data = HomeActivities.run()
+    
   return data, 200
 
 @app.route("/api/activities/notifications", methods=['GET'])

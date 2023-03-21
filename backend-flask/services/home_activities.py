@@ -1,11 +1,14 @@
 from datetime import datetime, timedelta, timezone
 from opentelemetry import trace
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 tracer = trace.get_tracer("home_activities")
 
 class HomeActivities:
-  def run(logger):
-    logger.info('Hello Cloudwatch! from  /api/activities/home')
+  def run(cognito_user_id=None):
+    LOGGER.info('Hello Cloudwatch! from  /api/activities/home')
     with tracer.start_as_current_span("homeActivitiesMockedData"):
       span = trace.get_current_span()
       now = datetime.now(timezone.utc).astimezone()
@@ -50,6 +53,18 @@ class HomeActivities:
         'replies': []
       }
       ]
-      span.set_attribute("app.result_length", len(results))
+      if cognito_user_id != None:
+        extra_crud = {
+        'uuid': '248959df-3079-4947-b847-9e0892d1bab5',
+        'handle':  'Lore',
+        'message': 'Your evil has met it\'s match',
+        'created_at': (now - timedelta(hours=1)).isoformat(),
+        'expires_at': (now + timedelta(hours=12)).isoformat(),
+        'likes': 300,
+        'replies': []
+        }
+        results.insert(0, extra_crud)
+
+    span.set_attribute("app.result_length", len(results))
     return results
   

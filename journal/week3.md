@@ -1,1 +1,5 @@
 # Week 3 — Decentralized Authentication
+
+In week 3, I was able to go through all the assigned work dispite it being difficult. I learned a lot about AWS Cognito and it's various parts, more nuances and intricacies of Gitpod. I researched and found errors that unlocked more errors to then go back and almost went back to scratch to do it all over again. I now understand how important it is to take the error messages with a grain of salt and to make sure to commit early and often. 
+
+I have learned about myself that I can remember the changes that I make in my head but when it comes to unwinding the spaghetti mess that is my thoughts I tend to get things out of order when I do them. That being said, I am learning how to better use my tools and make sure that regardless of how little I think a changes is to the code, if I am moving between more than 2 files, I should definitely commit and push everyhing that I am doing. I plan on going back and implementing a TOTP MFA token at some point of this project but as it stands, just trying to stay on top of the weeks as they are getting more and more difficult each week. 

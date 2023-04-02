@@ -63,4 +63,5 @@ class CreateActivity:
 
     )
     """
+    query_commit(sql)
    

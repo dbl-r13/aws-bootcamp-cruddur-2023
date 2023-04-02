@@ -1,1 +1,5 @@
 # Week 4 — Postgres and RDS
+
+This week has been quite the doozy in learning how to connect multiple services together and make sure that we were able to have proper communication to all the services. I was able to follow along and get everything connected but it was very difficult to sift through some of the errors that I was having. The biggest issues I had was when I was getting an Invalid Code error when I initially got the confirmation code from Cognito and the timeout issue that I was experiencing. Both of them caused me to dig deep into documentation and try different things until I was able to get to the answers needed to move forward. 
+
+I was able to continue using the us-east-1 for my region and make some subtle tweaks to my code to help make sure that things were being developed as I wanted it. I am learning through this process, that even though it is a bootcamp and we all are building the same things, I want to make sure that I am putting my little touches and flair on things so that I can speak to how to do even the little things when it comes to this project. 

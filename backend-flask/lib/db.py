@@ -9,7 +9,21 @@ class Db:
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
   
+  def query_commit_with_returning_id(self, sql):
+    print('-----SQL Statement [commit with returning]------')
+    try:
+      conn = self.pool.connection()
+      cur = conn.cursor()
+      cur.execute(sql)
+      returning_id = cur.fetchone()[0]
+      conn.commit()
+      return returning_id
+
+    except Exception as err:
+      print_sql_err(err)
+
   def query_commit(self):
+    print('-----SQL Statement [commit]------')
     try:
       conn = self.pool.connection()
       cur = conn.cursor()
